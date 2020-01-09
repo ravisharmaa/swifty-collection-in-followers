@@ -10,6 +10,10 @@ class ProfilesViewController: UIViewController {
     
     var followers: [Followers] = [Followers]()
     
+    let sectionInsets: UIEdgeInsets = UIEdgeInsets(top: 15, left: 10, bottom: 10, right: 10)
+    
+    private let itemsPerRow: CGFloat = 3
+    
     
     //MARK:- Subviews
     
@@ -19,15 +23,12 @@ class ProfilesViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        let width = (self.view.frame.size.width - 40) / 5
-        
-        layout.itemSize = CGSize(width: width, height: width)
-        
         layout.scrollDirection = .vertical
         
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         collectionView.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -51,6 +52,7 @@ class ProfilesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -76,7 +78,7 @@ class ProfilesViewController: UIViewController {
             } catch let jsonError {
                 print("Could not parse json \(jsonError)")
             }
-            }.resume()
+        }.resume()
     }
     
     func setupLayoutForCollectionView() {
@@ -91,7 +93,7 @@ class ProfilesViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            ])
+        ])
     }
     
 }
@@ -114,5 +116,24 @@ extension ProfilesViewController: UICollectionViewDataSource, UICollectionViewDe
 
 extension ProfilesViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        
+        let totalWidth = view.frame.width - paddingSpace
+        
+        let widthPerItem = totalWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return sectionInsets.left
+    }
 }
 

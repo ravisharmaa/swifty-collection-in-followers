@@ -33,9 +33,9 @@ class ProfilesCollectionViewCell: UICollectionViewCell {
     func setupConstraintsForImageView() {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            imageView.heightAnchor.constraint(equalToConstant: 60),
-            imageView.widthAnchor.constraint(equalToConstant: 60)
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 80),
+            imageView.widthAnchor.constraint(equalToConstant: 80)
         ])
     }
     
