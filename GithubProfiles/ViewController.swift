@@ -6,7 +6,7 @@ class ViewController: UIViewController {
     
     lazy var imageContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         emailField.autocorrectionType = UITextAutocorrectionType.no
         emailField.autocapitalizationType = UITextAutocapitalizationType.none
         emailField.translatesAutoresizingMaskIntoConstraints = false
-        emailField.placeholder = "Please Input Your Email"
+        emailField.placeholder = "Please input your username"
         return emailField
     }()
     
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         
         view.addSubview(imageContainer)
         
@@ -83,10 +83,10 @@ class ViewController: UIViewController {
     func setupViews(){
         
         NSLayoutConstraint.activate([
-            imageContainer.topAnchor.constraint(equalTo: view.topAnchor),
+            imageContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 55),
             imageContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageContainer.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+            imageContainer.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
         ])
         
         imageContainer.addSubview(logoImage)
@@ -107,12 +107,13 @@ class ViewController: UIViewController {
         buttonAndTextFieldStack.distribution = .fill
         buttonAndTextFieldStack.axis = .vertical
         
-        buttonAndTextFieldStack.spacing = 10
+        buttonAndTextFieldStack.spacing = 18
         
         NSLayoutConstraint.activate([
             buttonAndTextFieldStack.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
-            buttonAndTextFieldStack.widthAnchor.constraint(equalTo: logoImage.widthAnchor),
-            buttonAndTextFieldStack.topAnchor.constraint(equalTo: imageContainer.bottomAnchor, constant: 10)
+            buttonAndTextFieldStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            buttonAndTextFieldStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            buttonAndTextFieldStack.topAnchor.constraint(equalTo: imageContainer.bottomAnchor, constant: 40)
         ])
         
         buttonAndTextFieldStack.addArrangedSubview(emailField)
@@ -124,7 +125,8 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             emailField.heightAnchor.constraint(equalToConstant: 35),
-            searchButton.widthAnchor.constraint(equalToConstant: 150),
+            emailField.widthAnchor.constraint(equalToConstant: 250),
+            searchButton.widthAnchor.constraint(equalToConstant: 200),
             searchButton.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
