@@ -15,7 +15,7 @@ class ProfilesViewController: UIViewController {
     private let itemsPerRow: CGFloat = 3
     
     
-    //MARK:- Subviews
+    //MARK:- Sub-views
     
     lazy var collectionView: UICollectionView = {
         
@@ -35,7 +35,7 @@ class ProfilesViewController: UIViewController {
         return collectionView
     }()
     
-    //MARK:- Viewlife Cycle
+    //MARK:- View life-cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +60,9 @@ class ProfilesViewController: UIViewController {
     
     
     
-    fileprivate func fetchDataFromApi(_ forEmail: String) {
+    fileprivate func fetchDataFromApi(_ forUser: String) {
        
-        Service.shared.fetchDataOfProfiles(username: forEmail) { (followers) in
+        Service.shared.fetchDataOfProfiles(forUser) { (followers) in
             self.followers = followers
             
             DispatchQueue.main.async { [weak self ] in
@@ -89,6 +89,7 @@ class ProfilesViewController: UIViewController {
 }
 
 extension ProfilesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return followers.count
     }

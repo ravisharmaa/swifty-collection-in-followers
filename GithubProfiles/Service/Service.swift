@@ -4,9 +4,13 @@ struct Service {
     
     let url: String = "https://api.github.com/users/"
     
+    // creating a singleton
+    
     static let shared = Service()
     
-    func fetchDataOfProfiles(username: String, completion: @escaping([Followers])->()) {
+    //  fetch data from external resource
+    
+    func fetchDataOfProfiles(_ username: String, completion: @escaping([Followers])->()) {
         
         guard let url = URL(string: url + "\(username)" + "/followers") else { return  }
         
