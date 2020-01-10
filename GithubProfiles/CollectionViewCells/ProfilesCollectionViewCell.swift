@@ -15,7 +15,7 @@ class ProfilesCollectionViewCell: UICollectionViewCell {
         
         return imageView
     }()
-
+    
     //MARK:- Initializers
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,32 +34,17 @@ class ProfilesCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 80),
-            imageView.widthAnchor.constraint(equalToConstant: 80)
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
     
     func setFields(data: Followers) {
         
-        fetchImageFromAvatarUrl(data.avatar_url)
-    }
-    
-    func fetchImageFromAvatarUrl(_ url: String?) {
-        
-        guard let imageUrl = url else {
-            return
-        }
-    
-        guard let url = URL(string: imageUrl) else { return }
-        
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url)
-            
-            DispatchQueue.main.async {
-                self.imageView.image = UIImage(data: data!)
-            }
-            
+        Service.shared.fetchAvatarFrom(data.avatar_url) { (data: Data) in
+            self.imageView.image = UIImage(data: data)
         }
     }
+    
 }

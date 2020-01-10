@@ -26,4 +26,20 @@ struct Service {
             }
         }.resume()
     }
+    
+    // fetch image from a url
+    
+    func fetchAvatarFrom(_ url: String, completion: @escaping(Data) -> ()) {
+        
+        guard let url = URL(string: url) else { return }
+        
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url)
+            
+            DispatchQueue.main.async {
+                completion(data!)
+            }
+            
+        }
+    }
 }

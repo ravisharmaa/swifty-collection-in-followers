@@ -12,8 +12,8 @@ class ProfilesViewController: UIViewController {
     
     let sectionInsets: UIEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     
-    private let itemsPerRow: CGFloat = 4
-    private let cellPadding: CGFloat = 32
+    private let itemsPerRow: CGFloat = 3
+    private let cellPadding: CGFloat = 38
     
     
     //MARK:- Sub-views
@@ -112,7 +112,7 @@ extension ProfilesViewController: UICollectionViewDelegateFlowLayout {
         
         let widthOfCell = ((self.view.frame.size.width - (sectionInsets.left + sectionInsets.right) - (cellPadding * (itemsPerRow-1)))/itemsPerRow)
         let sizeOfCell = CGSize(width: widthOfCell, height: widthOfCell)
-        print(sizeOfCell)
+ 
         return sizeOfCell
         
     }
