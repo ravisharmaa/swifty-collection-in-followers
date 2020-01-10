@@ -61,24 +61,14 @@ class ProfilesViewController: UIViewController {
     
     
     fileprivate func fetchDataFromApi(_ forEmail: String) {
-        
-        
-        guard let url = URL(string: apiUrl + "\(username!)" + "/followers") else { return  }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+       
+        Service.shared.fetchDataOfProfiles(username: forEmail) { (followers) in
+            self.followers = followers
             
-            guard let jsonData = data else { return }
-            
-            do {
-                let followers = try JSONDecoder().decode([Followers].self, from: jsonData)
-                self.followers = followers
-                DispatchQueue.main.async { [weak self ] in
-                    self?.collectionView.reloadData()
-                }
-            } catch let jsonError {
-                print("Could not parse json \(jsonError)")
+            DispatchQueue.main.async { [weak self ] in
+                self?.collectionView.reloadData()
             }
-        }.resume()
+        }
     }
     
     func setupLayoutForCollectionView() {

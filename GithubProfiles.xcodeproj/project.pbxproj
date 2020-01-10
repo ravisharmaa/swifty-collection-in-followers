@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22727E9623C8163600B00EE1 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22727E9523C8163600B00EE1 /* Service.swift */; };
 		5139E4B623BDF679002ED812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139E4B523BDF679002ED812 /* AppDelegate.swift */; };
 		5139E4B823BDF679002ED812 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139E4B723BDF679002ED812 /* ViewController.swift */; };
 		5139E4BD23BDF67B002ED812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5139E4BC23BDF67B002ED812 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22727E9523C8163600B00EE1 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5139E4B223BDF679002ED812 /* GithubProfiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubProfiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5139E4B523BDF679002ED812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5139E4B723BDF679002ED812 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22727E9423C8161E00B00EE1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				22727E9523C8163600B00EE1 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		5139E4A923BDF679002ED812 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +70,7 @@
 		5139E4B423BDF679002ED812 /* GithubProfiles */ = {
 			isa = PBXGroup;
 			children = (
+				22727E9423C8161E00B00EE1 /* Service */,
 				515D465023C73E2100AB4A70 /* CollectionViewCells */,
 				5161EAC923C5FF4D008ED203 /* UIKit */,
 				5139E4B523BDF679002ED812 /* AppDelegate.swift */,
@@ -160,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				515D465423C73E6900AB4A70 /* ProfilesCollectionViewCell.swift in Sources */,
+				22727E9623C8163600B00EE1 /* Service.swift in Sources */,
 				5139E4B823BDF679002ED812 /* ViewController.swift in Sources */,
 				5199801423C710060032A636 /* Followers.swift in Sources */,
 				5139E4B623BDF679002ED812 /* AppDelegate.swift in Sources */,
