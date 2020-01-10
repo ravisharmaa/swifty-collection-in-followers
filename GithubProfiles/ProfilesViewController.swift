@@ -110,7 +110,7 @@ extension ProfilesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let widthOfCell = ((self.collectionView.frame.size.width - (sectionInsets.left + sectionInsets.right) - (cellPadding * (itemsPerRow-1)))/itemsPerRow)
+        let widthOfCell = ((self.view.frame.size.width - (sectionInsets.left + sectionInsets.right) - (cellPadding * (itemsPerRow-1)))/itemsPerRow)
         let sizeOfCell = CGSize(width: widthOfCell, height: widthOfCell)
         print(sizeOfCell)
         return sizeOfCell
@@ -122,7 +122,9 @@ extension ProfilesViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
         return cellPadding
+        //return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return cellPadding
